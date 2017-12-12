@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	XML의 태그, 속성을 지정하는 언어
+	<!ELEMENT>
+		<member>
+			<list no="a1">
+				<id>admin</id>
+				<pwd>1234</pwd>
+				<name first="">홍길동</name>
+				<hp>000-0000-0000</hp>
+				<from/>
+			</list>
+			<list no="a2">
+				<id>admin</id>
+				<name>홍길동</name>
+				<home>000-0000-0000</home>
+				<from/>
+			</list>
+		</member>
+	<!ATTLIST>
+	<!ENTITY nbsp " "> => &nbsp;	: 변수 지정 태그
+	<!ENTITY a "aa"> => &a;
+	================================================
+	<!ELEMENT member (list+)> => +는 list는 여러개
+	
+	+ : 1 ~ (여러번 사용 가능 / 반드시 한번은 사용)
+	* : 0 ~ (여러번 사용 가능 / 써도되고 안써도 됨)
+	? : 0|1 (한번 사용 가능 / 써도되고 안써도 됨)
+	| : 선택	(th|td) (*, +) => (여러번 사용가능)  
+	default : 반드시 한번만 사용
+	================================================
+	#PCDATA : id와 id 사이에 문자열이 들어온다.
+	================================================
+-->
+<!ELEMENT member (list+)>
+<!ELEMENT list (id, pwd?, name, (hp | home), from)>
+<!ATTLIST list no ID #REQUIRED>
+<!--
+	ID, IDREF(FOREIGN KEY), NOTATION(일반 문자열), CDATA(일반 문자열)
+	==						=================  ===============
+	UNIQUE 					└ 공백을 허용하지 않는다.  └ 공백 허용
+	#REQUIRED : NOT NULL
+	#IMPLIED : NULL(써도 되구 안써도 되고)
+	#FIXED : DEFAULT
+	<age></age>
+-->
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT pwd (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ATTLIST name first CDATA #IMPLIED>
+<!ELEMENT hp (#PCDATA)>
+<!ELEMENT home (#PCDATA)>
+<!ELEMENT from EMPTY>
+<!ATTLIST from nara CDATA #FIXED "한국">

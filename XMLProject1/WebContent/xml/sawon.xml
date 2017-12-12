@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	1) XML (필요한 데이터를 문서로 저장) : Document(문서저장), HTML(view)
+		=> 문서형 데이터 베이스 사용
+		=> 운영체제의 호환성이 좋다.
+		=> 모든 프로그램 언어에서 같은 내용을 출력할 수 있다.
+		=> XML 
+			# XML 구조
+			# 문서 제작하는 방법 (DTD, XSD)
+			# 변환 : HTML, PDF
+			# 언어(자바)에서 활용 : DOM, SAX(★★★★★) =>  XML Parser
+							  ===, ===
+		   메모리에 저장한 상태에서 파싱한다., 한줄씩 읽어서 데이터를 가지고 온다.
+		1. 구분이 되어있다. (반정형화 데이터(필요한 데이터와 필요없는 데이터를 구분해서 사용하자.))
+			XML : 필요한 데이터를 저장할 때  <a>(데이터 저장 위치)</a> <a href="(데이터 저장 위치)">
+					- 태그와 태그 사이, 속성 값  
+			ML : 태그와 속성으로 만들어진다.
+				  - 태그 : 여는 태그 <a>, 닫는 태그</a>, Empty태그(단독 태그) <input />
+		2. XML에서 태그는 지정된 것이 없다. (사용자 정의) => 시멘텍으로 제작
+			// 시멘텍 태그 : 알아보기 쉽게 만든 태그, 속도의 최적화	Ex) <div> 보다 <header>
+			1) XML 문법
+				= 태그를 만들 경우
+					# 알파벳, 한글을 사용한다. (알파벳은 대소문자 구분)
+						HTML : <A>=<a>, XML : <A>!=<a> (Java : int A; !=  int a;)
+					# 숫자를 사용할 수 있다 : 단 앞에 사용 금지
+						<2aaa>(X) => <a2> <a3>(O)
+					# 특수문자 사용이 가능 : (_), (-), (.), $, :
+						<c:forEach> <file_name> <file.size>
+					# 키워드(예약어)는 사용할 수 없다. => xml
+					# 반드시 최상위 태그는 1개만 존재
+						= 계층구조 : 전체 루트 태그
+						= 열고 닫는 태그가 반드시 일치 (순서)
+							<a><b><c></c></b></a>
+					# 속성은 값을 지정할 때 반드시 "", '' 사용
+						<table width=300> (X)
+						<table width="300"> (O) 	 
+ -->
+ <sawon>	<!-- table명 -->
+ 	<list>	<!-- Row (Record) -->
+ 		<sawon_num>1</sawon_num>	<!-- Column -->
+ 		<sawon_name>홍길동</sawon_name>
+ 		<sawon_dept>개발부</sawon_dept>
+ 		<sawon_sex>남자</sawon_sex>
+ 		<sawon_age>26</sawon_age>
+ 	</list>
+ 	<list>
+ 		<sawon_num>2</sawon_num>
+ 		<sawon_name>심청이</sawon_name>
+ 		<sawon_dept>개발부</sawon_dept>
+ 		<sawon_sex>여자</sawon_sex>
+ 		<sawon_age>25</sawon_age>
+ 	</list>
+ 	<list>
+ 		<sawon_num>3</sawon_num>
+ 		<sawon_name>박문수</sawon_name>
+ 		<sawon_dept>개발부</sawon_dept>
+ 		<sawon_sex>남자</sawon_sex>
+ 		<sawon_age>22</sawon_age>
+ 	</list>
+ </sawon>
